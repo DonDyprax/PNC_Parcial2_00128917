@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Ingresar nuevo libro</title>
+</head>
+<body>
+	<form th:action="@{/guardarLibro}" th:object="${libro} "method="post">
+		<label>Titulo: </label>
+		<input type ="text" th:field="*{s_titulo}"><br>
+		<span th:errors="*{s_titulo}" style="color:#E81505"></span><br>
+		
+		<label>Autor: </label>
+		<input type ="text" th:field="*{s_autor}"><br>
+		<span th:errors="*{s_autor}" style="color:#E81505"></span><br>
+		
+		<label>ISBN: </label>
+		<input type ="text" th:field="*{s_isbn}"><br>
+		<span th:errors="*{s_isbn}" style="color:#E81505"></span><br>
+		
+		<label>Categoria: </label>
+		<select th:field ="*{categoria.c_categoria}">
+			<option th:each=" cat : ${categorias}" th:value="${cat.c_categoria}" th:text="${cat.s_categoria}"></option>
+		</select>
+		
+		<br>
+		
+		<label name="estado">Estado: </label>
+		<label>Activo: </label><input type="radio" name="estado" th:field="*{b_estado}" th:value="${true}">
+		<label>Inactivo: </label><input type="radio" name="estado" th:field="*{b_estado}" th:value="${false}">
+
+		<br>
+		
+		<input type="submit" value="Guardar libro">
+	</form>
+
+</body>
+</html>

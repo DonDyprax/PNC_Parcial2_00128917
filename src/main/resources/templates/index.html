@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Administracion de Libros</title>
+</head>
+<body>
+	
+	<span th:text="${exito}"></span>
+
+	<form th:action="@{/ingresarCategoria}" method="post">
+		<input type="submit" value="Ingresar categoria">
+	</form>
+	
+	<form th:action="@{/ingresarLibro}" method="post">
+		<input type="submit" value="Ingresar libro">
+	</form>
+	
+	<form th:action="@{/mostrarLibros}" method="post">
+		<input type="submit" value="Ver libros">
+	</form>
+</body>
+</html>
